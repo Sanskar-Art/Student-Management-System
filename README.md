@@ -13,7 +13,6 @@ A RESTful Web API built using ASP.NET Core, Entity Framework Core, and SQL Serve
 - ASP.NET Core Web API
 - Entity Framework Core
 - SQL Server
-- Swagger UI
 - Git & GitHub
 
 ## API Endpoints
