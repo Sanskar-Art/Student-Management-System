@@ -90,17 +90,15 @@ var app = builder.Build();
 // ---------- HTTP pipeline ----------
 app.UseGlobalExceptionHandling();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseCors("AllowReactApp");
 
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapGet("/", () => "Student Management API is running!");
 app.MapControllers();
 
 app.Run();
