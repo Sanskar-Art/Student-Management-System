@@ -1,15 +1,17 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: "http://localhost:5297/api",
+  baseURL: import.meta.env.VITE_API_BASE_URL,
 });
 
 // Attach the JWT (if present) to every outgoing request.
 apiClient.interceptors.request.use((config) => {
   const token = localStorage.getItem("sms_token");
+
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
+
   return config;
 });
 
@@ -20,10 +22,12 @@ apiClient.interceptors.response.use(
     if (error.response?.status === 401) {
       localStorage.removeItem("sms_token");
       localStorage.removeItem("sms_user");
+
       if (window.location.pathname !== "/login") {
         window.location.assign("/login");
       }
     }
+
     return Promise.reject(error);
   }
 );
