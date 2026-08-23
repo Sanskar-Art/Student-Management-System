@@ -82,7 +82,7 @@ builder.Services.AddCors(options =>
         policy.WithOrigins(
             "http://localhost:5173",
             "http://localhost:3000",
-            "https://student-management-system-1-5s9v.onrender.com"
+            "https://student-management-frontend-3av9.onrender.com"
         )
         .AllowAnyHeader()
         .AllowAnyMethod();
